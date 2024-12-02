@@ -1,5 +1,6 @@
 # teste-tecnico-laravel
- 
+ ![Design sem nome](https://github.com/user-attachments/assets/05fa4a9f-1960-430e-a8ba-b910041c7c6d)
+
 ## Passo a passo para rodar o projeto
 Clone o projeto
 ```sh
