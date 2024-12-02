@@ -16,6 +16,23 @@
     </style>
 </head>
 <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url('/weather/') }}">Clima app</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/weather/history') }}">Histórico</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/weather/compare') }}">Comparar Previsões</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
 <div class="container mt-5">
     <h1 class="mb-4">Previsão do Tempo</h1>
     
@@ -48,6 +65,15 @@
     </form>
 
     @isset($weatherData)
+    <form method="POST" action="{{ route('weather.save') }}">
+        @csrf
+        <input type="hidden" name="city" value="{{ $city }}">
+        <input type="hidden" name="temperature" value="{{ $weatherData['current']['temperature'] }}">
+        <input type="hidden" name="description" value="{{ $weatherData['current']['weather_descriptions'][0] }}">
+        <input type="hidden" name="wind_speed" value="{{ $weatherData['current']['wind_speed'] }}">
+        <button type="submit" class="btn btn-success mt-3">Salvar Previsão</button>
+    </form>
+
         <div class="mt-4">
             <h2>Previsão para {{ $city }}</h2>
             <p><strong>Temperatura:</strong> {{ $weatherData['current']['temperature'] }}°C</p>
