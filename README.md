@@ -3,7 +3,7 @@
 ## Passo a passo para rodar o projeto
 Clone o projeto
 ```sh
-git clone https://github.com/especializati/curso-de-laravel-10.git laravel-10
+git clone https://github.com/matefs/teste-tecnico-laravel.git laravel-10
 ```
 ```sh
 cd laravel-10/
